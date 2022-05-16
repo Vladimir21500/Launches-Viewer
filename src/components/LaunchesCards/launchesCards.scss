@@ -1,0 +1,27 @@
+@import '../../../styles/breakpoints.scss';
+
+.launches-cards {
+  padding: 0px 15px;
+  margin-top: 30px;
+
+  @include for-small-up {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  @include for-medium-up {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  @include for-large-up {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+  }
+}
