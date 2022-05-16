@@ -1,11 +1,13 @@
 import React, { FunctionComponent, useState } from 'react';
+import { objParamsType } from '../LaunchesViewer/LaunchesViewer';
+import './launchesFilters.scss';
 
 type LaunchesFiltersPropsType = {
-  onSearchLaunches: (isComplited: boolean, year: number | null) => void;
+  setLaunchesParams: (objParams: objParamsType) => void;
 };
 
 const LaunchesFilters: FunctionComponent<LaunchesFiltersPropsType> = ({
-  onSearchLaunches,
+  setLaunchesParams,
 }) => {
   const [status, setStatus] = useState<string>('complited');
   const [year, setYear] = useState<number | null>(null);
@@ -14,7 +16,11 @@ const LaunchesFilters: FunctionComponent<LaunchesFiltersPropsType> = ({
   const onSubmit = (event: any) => {
     event.preventDefault();
     const isComplited = status === 'complited' ? true : false;
-    onSearchLaunches(isComplited, year);
+    setLaunchesParams({
+      isComplited,
+      year,
+      name: searchName,
+    });
   };
 
   return (

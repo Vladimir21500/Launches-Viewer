@@ -1,29 +1,31 @@
 import React from 'react';
 import { useState } from 'react';
-import { useEffect } from 'react';
-import { getLaunches } from '../../getLaunches';
 import LaunchesCards from '../LaunchesCards/LaunchesCards';
 import LaunchesFilters from '../LaunchesFilters/LaunchesFilters';
 import './launchesViewer.scss';
 
+export type objParamsType = {
+  isComplited: boolean;
+  year: number | null;
+  name: string | null;
+};
+
 const LaunchesViewer = () => {
-  const [launches, setLaunches] = useState([]);
+  const [objParams, setObjParams] = useState<objParamsType>({
+    isComplited: true,
+    year: null,
+    name: '',
+  });
 
-  const onSearchLaunches = (isComplited: boolean, year: number | null) => {
-    getLaunches(isComplited, year).then((res: any) => setLaunches(res));
+  const setLaunchesParams = (objParams: objParamsType) => {
+    setObjParams(objParams);
   };
-
-  useEffect(() => {
-    getLaunches(true, null).then((res: any) => {
-      setLaunches(res);
-    });
-  }, []);
 
   return (
     <>
-      <LaunchesFilters onSearchLaunches={onSearchLaunches} />
+      <LaunchesFilters setLaunchesParams={setLaunchesParams} />
       <div className='launches'>
-        <LaunchesCards launches={launches} />
+        <LaunchesCards launchesParams={objParams} />
       </div>
     </>
   );

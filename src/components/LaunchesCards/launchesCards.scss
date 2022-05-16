@@ -4,6 +4,14 @@
   padding: 0px 15px;
   margin-top: 30px;
 
+  &__not-found {
+    display: flex;
+    height: 60vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
   @include for-small-up {
     display: grid;
 

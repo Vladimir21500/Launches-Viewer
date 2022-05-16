@@ -1,13 +1,18 @@
 import axios from 'axios';
 
-export const getLaunches = (isCompleted: boolean, year: number | null): any => {
+export const getLaunches = (
+  isCompleted: boolean,
+  year: number | null,
+  limit: number,
+  offset: number
+): any => {
   return axios
     .get(
       `https://api.spacexdata.com/v3/launches/${isCompleted ? '' : 'upcoming'}`,
       {
         params: {
-          limit: 10,
-          offset: null,
+          limit,
+          offset,
           launch_year: year ? year : null,
         },
       }
