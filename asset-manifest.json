@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Launches-Viewer/static/css/main.069ba34c.css",
+    "main.js": "/Launches-Viewer/static/js/main.cde2c256.js",
+    "index.html": "/Launches-Viewer/index.html",
+    "main.069ba34c.css.map": "/Launches-Viewer/static/css/main.069ba34c.css.map",
+    "main.cde2c256.js.map": "/Launches-Viewer/static/js/main.cde2c256.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.069ba34c.css",
+    "static/js/main.cde2c256.js"
+  ]
+}
