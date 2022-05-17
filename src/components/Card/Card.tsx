@@ -33,10 +33,20 @@ const Card: FunctionComponent<CardPropsType> = ({
             {details ? details : 'without details'}
           </p>
           <div>
-            <a className='card__youtube' href={youtubeUrl} target='_blank'>
+            <a
+              className='card__youtube'
+              href={youtubeUrl}
+              target='_blank'
+              rel='noreferrer'
+            >
               Youtube video
             </a>
-            <a className='card__article' href={articleUrl} target='_blank'>
+            <a
+              className='card__article'
+              href={articleUrl}
+              target='_blank'
+              rel='noreferrer'
+            >
               Read more
             </a>
           </div>

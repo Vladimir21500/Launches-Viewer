@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import LaunchesCards from '../LaunchesCards/LaunchesCards';
 import LaunchesFilters from '../LaunchesFilters/LaunchesFilters';
-import './launchesViewer.scss';
 
 export type objParamsType = {
   isComplited: boolean;
@@ -17,13 +16,13 @@ const LaunchesViewer = () => {
     name: '',
   });
 
-  const setLaunchesParams = (objParams: objParamsType) => {
+  const getLaunchesParams = (objParams: objParamsType) => {
     setObjParams(objParams);
   };
 
   return (
     <>
-      <LaunchesFilters setLaunchesParams={setLaunchesParams} />
+      <LaunchesFilters getLaunchesParams={getLaunchesParams} />
       <div className='launches'>
         <LaunchesCards launchesParams={objParams} />
       </div>

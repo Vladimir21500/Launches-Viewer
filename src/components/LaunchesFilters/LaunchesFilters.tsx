@@ -3,11 +3,11 @@ import { objParamsType } from '../LaunchesViewer/LaunchesViewer';
 import './launchesFilters.scss';
 
 type LaunchesFiltersPropsType = {
-  setLaunchesParams: (objParams: objParamsType) => void;
+  getLaunchesParams: (objParams: objParamsType) => void;
 };
 
 const LaunchesFilters: FunctionComponent<LaunchesFiltersPropsType> = ({
-  setLaunchesParams,
+  getLaunchesParams,
 }) => {
   const [status, setStatus] = useState<string>('complited');
   const [year, setYear] = useState<number | null>(null);
@@ -15,8 +15,10 @@ const LaunchesFilters: FunctionComponent<LaunchesFiltersPropsType> = ({
 
   const onSubmit = (event: any) => {
     event.preventDefault();
+
     const isComplited = status === 'complited' ? true : false;
-    setLaunchesParams({
+
+    getLaunchesParams({
       isComplited,
       year,
       name: searchName,

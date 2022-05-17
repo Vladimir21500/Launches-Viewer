@@ -2,7 +2,6 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { getLaunches } from '../../getLaunches';
 import Card from '../Card/Card';
-import EndMessage from '../EndMessage/EndMessage';
 import Loader from '../Loader/Loader';
 import './launchesCards.scss';
 import { objParamsType } from '../LaunchesViewer/LaunchesViewer';
@@ -17,18 +16,10 @@ const LaunchesCards: FunctionComponent<LaunchesCardsPropsType> = ({
   const [launches, setLaunches] = useState<Array<any>>([]);
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(0);
-  const [limit, setLimit] = useState(20);
+
+  const limit = 20;
 
   const { isComplited, year, name } = launchesParams;
-
-  useEffect(() => {
-    getLaunches(isComplited, year, name, limit, 0).then((result: any) => {
-      setLaunches(result);
-      if (result.length < limit) {
-        setHasMore(false);
-      }
-    });
-  }, [launchesParams]);
 
   const fetchLaunches = async () => {
     const data = await getLaunches(
@@ -52,6 +43,15 @@ const LaunchesCards: FunctionComponent<LaunchesCardsPropsType> = ({
 
     setPage(page + 1);
   };
+
+  useEffect(() => {
+    getLaunches(isComplited, year, name, limit, 0).then((result: any) => {
+      setLaunches(result);
+      if (result.length < limit) {
+        setHasMore(false);
+      }
+    });
+  }, [isComplited, year, name]);
 
   return (
     <>

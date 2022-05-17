@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 .card {
   display: flex;
   flex-direction: column;
@@ -58,7 +60,7 @@
   }
 
   &__img {
-    background-color: rgba(0, 0, 0, 0.845);
+    background-color: $backgroundColorBlack;
     width: 100%;
     height: 230px;
     padding: 30px;
@@ -86,7 +88,7 @@
   &__button {
     margin: 40px 0 20px;
     width: 200px;
-    background-color: rgba(0, 0, 0, 0.845);
+    background-color: $backgroundColorBlack;
     line-height: 80px;
     border-radius: 20px;
     text-decoration: none;

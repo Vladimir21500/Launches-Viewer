@@ -1,9 +1,20 @@
 @import '../../../styles/breakpoints.scss';
+@import '../../../styles/variables.scss';
+
+.header {
+  @include for-medium-up {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $backgroundColorBlack;
+    color: white;
+  }
+}
 
 .title {
   text-align: center;
   line-height: 100px;
-  background-color: rgba(0, 0, 0, 0.845);
+  background-color: $backgroundColorBlack;
   margin: 0;
   font-weight: 300;
   color: white;
@@ -72,7 +83,7 @@
     margin: auto;
     margin-top: 15px;
     width: 100px;
-    background-color: rgba(0, 0, 0, 0.845);
+    background-color: $backgroundColorBlack;
     line-height: 40px;
     border-radius: 20px;
     text-decoration: none;

@@ -9,9 +9,9 @@ export const getLaunches = (
 ): any => {
   return axios
     .get(
-      `https://api.spacexdata.com/v3/launches/?sort=flight_number&order=desc${
+      `https://api.spacexdata.com/v3/launches/${
         isCompleted ? '' : 'upcoming'
-      }`,
+      }?sort=flight_number&order=desc`,
       {
         params: {
           limit,
