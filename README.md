@@ -1,6 +1,6 @@
 # Launches Viewer
 
-## [Site link]([https://vladimir21500.github.io/Your-chart-project/](https://vladimir21500.github.io/Launches-Viewer/))
+## [Site link]([https://vladimir21500.github.io/Launches-Viewer/])
 
 ## Available Scripts
 
