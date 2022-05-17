@@ -1,6 +1,6 @@
-# Your chart
+# Launches Viewer
 
-## [Site link](https://vladimir21500.github.io/Your-chart-project/)
+## [Site link]([https://vladimir21500.github.io/Your-chart-project/](https://vladimir21500.github.io/Launches-Viewer/))
 
 ## Available Scripts
 
@@ -24,8 +24,12 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### The tech stack is:
+### `npm run deploy`
 
+
+
+### The tech stack is:
+- [TypeScript](https://www.typescriptlang.org/)
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
 - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 - [Flexbox](https://en.wikipedia.org/wiki/CSS_Flexible_Box_Layout)
@@ -33,7 +37,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - [BEM methodology](https://en.bem.info/methodology/)
 - [React](https://ru.reactjs.org/)
 - [Hooks](https://ru.reactjs.org/docs/hooks-intro.html)
-- [Chart.js](https://www.chartjs.org/)
+- [Infinite scroll]([https://ru.reactjs.org/docs/hooks-intro.html](https://www.npmjs.com/package/react-infinite-scroll-component))
 
 ### Author
 
