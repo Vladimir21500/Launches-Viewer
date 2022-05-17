@@ -28,7 +28,7 @@ const LaunchesFilters: FunctionComponent<LaunchesFiltersPropsType> = ({
       <h1 className='title'>Launches Viewer</h1>
       <form onSubmit={onSubmit} className='launches__filters'>
         <div className='launches__filter'>
-          <label htmlFor='launch-status'>Status</label>
+          <label htmlFor='launch-status'>status</label>
           <select
             onChange={(event) => setStatus(event.target.value)}
             name='status'
@@ -49,7 +49,7 @@ const LaunchesFilters: FunctionComponent<LaunchesFiltersPropsType> = ({
           />
         </div>
         <div className='launches__filter'>
-          <label htmlFor='launch-name'>Name</label>
+          <label htmlFor='launch-name'>name</label>
           <input
             onChange={(event) => setSearchName(event.target.value)}
             type='text'
@@ -57,7 +57,7 @@ const LaunchesFilters: FunctionComponent<LaunchesFiltersPropsType> = ({
             defaultValue={searchName}
           />
         </div>
-        <input type='submit' className='launches__search-btn' value='search' />
+        <input type='submit' className='launches__search-btn' value='Search' />
       </form>
     </div>
   );

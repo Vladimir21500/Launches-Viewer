@@ -52,7 +52,7 @@ const Card: FunctionComponent<CardPropsType> = ({
         onClick={() => setIsShowInfo(!isShowInfo)}
         className='card__button'
       >
-        {isShowInfo === false ? 'more info' : 'hide info'}
+        {isShowInfo === false ? 'More Info' : 'Hide Info'}
       </button>
     </div>
   );

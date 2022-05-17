@@ -22,7 +22,7 @@ const LaunchesCards: FunctionComponent<LaunchesCardsPropsType> = ({
   const { isComplited, year, name } = launchesParams;
 
   useEffect(() => {
-    getLaunches(isComplited, year, limit, 1).then((result: any) => {
+    getLaunches(isComplited, year, name, limit, 0).then((result: any) => {
       setLaunches(result);
       if (result.length < limit) {
         setHasMore(false);
@@ -31,7 +31,13 @@ const LaunchesCards: FunctionComponent<LaunchesCardsPropsType> = ({
   }, [launchesParams]);
 
   const fetchLaunches = async () => {
-    const data = await getLaunches(isComplited, year, limit, page * limit);
+    const data = await getLaunches(
+      isComplited,
+      year,
+      name,
+      limit,
+      (page + 1) * limit
+    );
     return data;
   };
 
@@ -64,13 +70,13 @@ const LaunchesCards: FunctionComponent<LaunchesCardsPropsType> = ({
         <div className='launches-cards'>
           {launches.map((launch) => (
             <Card
-              key={launch['flight_number']}
-              imgUrl={launch['links']['mission_patch']}
-              name={launch['mission_name']}
-              date={launch['launch_date_utc']}
-              articleUrl={launch['links']['article_link']}
-              youtubeUrl={launch['links']['video_link']}
-              details={launch['details']}
+              key={launch._id}
+              imgUrl={launch.links.mission_patch}
+              name={launch.mission_name}
+              date={launch.launch_date_utc}
+              articleUrl={launch.links.article_link}
+              youtubeUrl={launch.links.video_link}
+              details={launch.details}
             />
           ))}
         </div>
