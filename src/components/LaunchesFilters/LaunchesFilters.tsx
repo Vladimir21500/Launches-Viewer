@@ -11,7 +11,7 @@ const LaunchesFilters: FunctionComponent<LaunchesFiltersPropsType> = ({
 }) => {
   const [status, setStatus] = useState<string>('complited');
   const [year, setYear] = useState<number | null>(null);
-  const [searchName, setSearchName] = useState('');
+  const [searchName, setSearchName] = useState<string>('');
 
   const onSubmit = (event: any) => {
     event.preventDefault();

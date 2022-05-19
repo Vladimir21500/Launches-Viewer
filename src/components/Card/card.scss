@@ -78,8 +78,10 @@
     margin: 0;
     margin-top: 20px;
     width: 100%;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
   }
   &__date {
     margin-top: 20px;

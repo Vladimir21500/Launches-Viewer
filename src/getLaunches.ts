@@ -22,5 +22,11 @@ export const getLaunches = (
         },
       }
     )
-    .then((response) => response.data);
+    .then((response) => {
+      if (!response.status) {
+        throw new Error('Error get launches');
+      }
+      return response.data;
+    })
+    .catch((error) => console.error(error));
 };

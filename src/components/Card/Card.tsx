@@ -21,12 +21,20 @@ const Card: FunctionComponent<CardPropsType> = ({
 }) => {
   const [isShowInfo, setIsShowInfo] = useState(false);
   const shortDate: string = `${moment(new Date(date)).format('LL')}`;
+
+  const cardImg = imgUrl ? (
+    <img src={imgUrl} alt='launch' />
+  ) : (
+    <img
+      src='https://logos-world.net/wp-content/uploads/2020/09/SpaceX-Emblem.png'
+      alt='launch'
+    />
+  );
+
   return (
     <div className='card' onMouseLeave={() => setIsShowInfo(false)}>
       {isShowInfo === false ? (
-        <div className='card__img'>
-          <img src={imgUrl} alt='launch' />
-        </div>
+        <div className='card__img'>{cardImg}</div>
       ) : (
         <div className='card__hidden-info'>
           <p className='card__details'>
@@ -62,7 +70,7 @@ const Card: FunctionComponent<CardPropsType> = ({
         onClick={() => setIsShowInfo(!isShowInfo)}
         className='card__button'
       >
-        {isShowInfo === false ? 'More Info' : 'Hide Info'}
+        {isShowInfo === false ? 'More info' : 'Hide info'}
       </button>
     </div>
   );
