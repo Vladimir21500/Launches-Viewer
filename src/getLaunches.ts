@@ -1,14 +1,14 @@
 import axios from 'axios';
 
-export const getLaunches = (
-  isCompleted: boolean,
+export default async function getLaunches(
+  isCompleted: 1 | 0,
   year: number | null,
   name: string | null,
   limit: number,
-  offset: number
-): any => {
-  return axios
-    .get(
+  offset: number,
+) {
+  try {
+    const response = await axios.get(
       `https://api.spacexdata.com/v3/launches/${
         isCompleted ? '' : 'upcoming'
       }?sort=flight_number&order=desc`,
@@ -20,13 +20,16 @@ export const getLaunches = (
           mission_name: name ? name : null,
           launch_year: year ? year : null,
         },
-      }
-    )
-    .then((response) => {
-      if (!response.status) {
-        throw new Error('Error get launches');
-      }
-      return response.data;
-    })
-    .catch((error) => console.error(error));
-};
+      },
+    );
+
+    if (!response.status) {
+      throw new Error('Error get launches');
+      return null;
+    }
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}

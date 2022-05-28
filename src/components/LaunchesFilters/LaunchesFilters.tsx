@@ -1,27 +1,33 @@
-import React, { FunctionComponent, useState } from 'react';
-import { objParamsType } from '../LaunchesViewer/LaunchesViewer';
+import * as React from 'react';
+import Filter from '../Filter/Filter';
+import { LaunchesParams } from '../LaunchesViewer/LaunchesViewer';
 import './launchesFilters.scss';
 
-type LaunchesFiltersPropsType = {
-  getLaunchesParams: (objParams: objParamsType) => void;
+const { useState } = React;
+
+type LaunchesFiltersProps = {
+  getLaunchesParams: (objParams: LaunchesParams) => void;
 };
 
-const LaunchesFilters: FunctionComponent<LaunchesFiltersPropsType> = ({
-  getLaunchesParams,
-}) => {
-  const [status, setStatus] = useState<string>('complited');
-  const [year, setYear] = useState<number | null>(null);
-  const [searchName, setSearchName] = useState<string>('');
+const LaunchesFilters: React.FC<LaunchesFiltersProps> = ({ getLaunchesParams }) => {
+  const [launchesParams, setLaunchesParams] = useState<LaunchesParams>({
+    isComplited: 1,
+    year: null,
+    name: '',
+  });
 
-  const onSubmit = (event: any) => {
+  const onSubmit = (event: React.MouseEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const isComplited = status === 'complited' ? true : false;
+    getLaunchesParams(launchesParams);
+  };
 
-    getLaunchesParams({
-      isComplited,
-      year,
-      name: searchName,
+  const onChangeLaunchesParams = (name: string, value: string | 1 | 0): void => {
+    const keyName = name;
+
+    setLaunchesParams({
+      ...launchesParams,
+      [keyName]: keyName === 'isComplited' ? +value : value,
     });
   };
 
@@ -29,36 +35,23 @@ const LaunchesFilters: FunctionComponent<LaunchesFiltersPropsType> = ({
     <div className='header'>
       <h1 className='title'>Launches Viewer</h1>
       <form onSubmit={onSubmit} className='launches__filters'>
-        <div className='launches__filter'>
-          <label htmlFor='launch-status'>status</label>
-          <select
-            onChange={(event) => setStatus(event.target.value)}
-            name='status'
-            id='launch-status'
-            value={status}
-          >
-            <option value='complited'>complited</option>
-            <option value='upcoming'>upcoming</option>
-          </select>
-        </div>
-        <div className='launches__filter'>
-          <label htmlFor='launch-year'>year</label>
-          <input
-            onChange={(event) => setYear(+event.target.value)}
-            type='number'
-            id='launch-year'
-            defaultValue={String(year)}
-          />
-        </div>
-        <div className='launches__filter'>
-          <label htmlFor='launch-name'>name</label>
-          <input
-            onChange={(event) => setSearchName(event.target.value)}
-            type='text'
-            id='launch-name'
-            defaultValue={searchName}
-          />
-        </div>
+        <Filter
+          typeFilter='select'
+          nameFilter='status'
+          onChangeLaunchesParams={onChangeLaunchesParams}
+        />
+        <Filter
+          typeFilter='input'
+          typeField='number'
+          nameFilter='year'
+          onChangeLaunchesParams={onChangeLaunchesParams}
+        />
+        <Filter
+          typeFilter='input'
+          typeField='text'
+          nameFilter='name'
+          onChangeLaunchesParams={onChangeLaunchesParams}
+        />
         <input type='submit' className='launches__search-btn' value='Search' />
       </form>
     </div>

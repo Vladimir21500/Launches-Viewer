@@ -3,28 +3,28 @@ import { useState } from 'react';
 import LaunchesCards from '../LaunchesCards/LaunchesCards';
 import LaunchesFilters from '../LaunchesFilters/LaunchesFilters';
 
-export type objParamsType = {
-  isComplited: boolean;
+export type LaunchesParams = {
+  isComplited: 1 | 0;
   year: number | null;
   name: string | null;
 };
 
-const LaunchesViewer = () => {
-  const [objParams, setObjParams] = useState<objParamsType>({
-    isComplited: true,
+const LaunchesViewer: React.FC<{}> = () => {
+  const [launchesParams, setLaunchesParams] = useState<LaunchesParams>({
+    isComplited: 1,
     year: null,
     name: '',
   });
 
-  const getLaunchesParams = (objParams: objParamsType) => {
-    setObjParams(objParams);
+  const getLaunchesParams = (launchesParams: LaunchesParams): void => {
+    setLaunchesParams(launchesParams);
   };
 
   return (
     <>
       <LaunchesFilters getLaunchesParams={getLaunchesParams} />
       <div className='launches'>
-        <LaunchesCards launchesParams={objParams} />
+        <LaunchesCards launchesParams={launchesParams} />
       </div>
     </>
   );
