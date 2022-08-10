@@ -3,16 +3,13 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import getLaunches from '../../getLaunches';
 import Card from '../Card/Card';
 import Loader from '../Loader/Loader';
+import { ILaunchesCardsProps } from 'src/types/properties';
+import { LaunchesParams } from 'src/types/launches';
 import './launchesCards.scss';
-import { LaunchesParams } from '../LaunchesViewer/LaunchesViewer';
 
 const { useEffect, useState } = React;
 
-type LaunchesCardsProps = {
-  launchesParams: LaunchesParams;
-};
-
-const LaunchesCards: React.FC<LaunchesCardsProps> = ({ launchesParams }) => {
+const LaunchesCards: React.FC<ILaunchesCardsProps> = ({ launchesParams }) => {
   const [launches, setLaunches] = useState<Array<any>>([]);
   const [hasMore, setHasMore] = useState<boolean>(true);
   const [page, setPage] = useState<number>(0);

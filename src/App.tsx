@@ -1,9 +1,7 @@
 import * as React from 'react';
 import LaunchesViewer from './components/LaunchesViewer/LaunchesViewer';
 
-interface AppProps {}
-
-const App: React.FC<AppProps> = () => {
+const App: React.FC<{}> = () => {
   return <LaunchesViewer />;
 };
 

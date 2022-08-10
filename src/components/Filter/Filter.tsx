@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
+import { IFilterProps } from 'src/types/properties';
 
-interface FilterProps {
-  typeFilter: 'input' | 'select';
-  nameFilter: 'status' | 'year' | 'name';
-  typeField?: string;
-  onChangeLaunchesParams: (name: string, value: string | 1 | 0) => void;
-}
-
-const Filter: React.FC<FilterProps> = ({
+const Filter: React.FC<IFilterProps> = ({
   typeFilter,
   nameFilter,
   typeField,

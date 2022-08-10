@@ -1,15 +1,12 @@
 import * as React from 'react';
 import Filter from '../Filter/Filter';
-import { LaunchesParams } from '../LaunchesViewer/LaunchesViewer';
+import { ILaunchesFiltersProps } from 'src/types/properties';
+import { LaunchesParams } from 'src/types/launches';
 import './launchesFilters.scss';
 
 const { useState } = React;
 
-type LaunchesFiltersProps = {
-  getLaunchesParams: (objParams: LaunchesParams) => void;
-};
-
-const LaunchesFilters: React.FC<LaunchesFiltersProps> = ({ getLaunchesParams }) => {
+const LaunchesFilters: React.FC<ILaunchesFiltersProps> = ({ getLaunchesParams }) => {
   const [launchesParams, setLaunchesParams] = useState<LaunchesParams>({
     isComplited: 1,
     year: null,

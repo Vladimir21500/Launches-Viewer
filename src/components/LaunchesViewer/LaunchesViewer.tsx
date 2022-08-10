@@ -1,13 +1,7 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import LaunchesCards from '../LaunchesCards/LaunchesCards';
 import LaunchesFilters from '../LaunchesFilters/LaunchesFilters';
-
-export type LaunchesParams = {
-  isComplited: 1 | 0;
-  year: number | null;
-  name: string | null;
-};
+import { LaunchesParams } from 'src/types/launches';
 
 const LaunchesViewer: React.FC<{}> = () => {
   const [launchesParams, setLaunchesParams] = useState<LaunchesParams>({

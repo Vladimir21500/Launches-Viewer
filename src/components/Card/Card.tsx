@@ -1,17 +1,9 @@
 import React, { FunctionComponent, useState } from 'react';
 import moment from 'moment';
+import { ICardProps } from 'src/types/properties';
 import './card.scss';
 
-type CardPropsType = {
-  imgUrl: string;
-  name: string;
-  date: string;
-  articleUrl: string;
-  youtubeUrl: string;
-  details: string;
-};
-
-const Card: FunctionComponent<CardPropsType> = ({
+const Card: FunctionComponent<ICardProps> = ({
   imgUrl,
   name,
   date,
@@ -19,16 +11,13 @@ const Card: FunctionComponent<CardPropsType> = ({
   youtubeUrl,
   details,
 }) => {
-  const [isShowInfo, setIsShowInfo] = useState(false);
-  const shortDate: string = `${moment(new Date(date)).format('LL')}`;
+  const [isShowInfo, setIsShowInfo] = useState<Boolean>(false);
+  const shortDate = `${moment(new Date(date)).format('LL')}`;
 
   const cardImg = imgUrl ? (
     <img src={imgUrl} alt='launch' />
   ) : (
-    <img
-      src='https://logos-world.net/wp-content/uploads/2020/09/SpaceX-Emblem.png'
-      alt='launch'
-    />
+    <img src='https://logos-world.net/wp-content/uploads/2020/09/SpaceX-Emblem.png' alt='launch' />
   );
 
   return (
@@ -37,24 +26,12 @@ const Card: FunctionComponent<CardPropsType> = ({
         <div className='card__img'>{cardImg}</div>
       ) : (
         <div className='card__hidden-info'>
-          <p className='card__details'>
-            {details ? details : 'without details'}
-          </p>
+          <p className='card__details'>{details ? details : 'without details'}</p>
           <div>
-            <a
-              className='card__youtube'
-              href={youtubeUrl}
-              target='_blank'
-              rel='noreferrer'
-            >
+            <a className='card__youtube' href={youtubeUrl} target='_blank' rel='noreferrer'>
               Youtube video
             </a>
-            <a
-              className='card__article'
-              href={articleUrl}
-              target='_blank'
-              rel='noreferrer'
-            >
+            <a className='card__article' href={articleUrl} target='_blank' rel='noreferrer'>
               Read more
             </a>
           </div>
@@ -66,10 +43,7 @@ const Card: FunctionComponent<CardPropsType> = ({
           <span className='card__date'>{shortDate}</span>
         </>
       )}
-      <button
-        onClick={() => setIsShowInfo(!isShowInfo)}
-        className='card__button'
-      >
+      <button onClick={() => setIsShowInfo(!isShowInfo)} className='card__button'>
         {isShowInfo === false ? 'More info' : 'Hide info'}
       </button>
     </div>
