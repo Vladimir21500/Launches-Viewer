@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IFilterProps } from 'src/types/properties';
+import { IFilterProps } from '../../types/properties';
 
 const Filter: React.FC<IFilterProps> = ({
   typeFilter,

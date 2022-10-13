@@ -12,12 +12,13 @@
   border-radius: 20px;
   -webkit-box-shadow: 1px 1px 13px -2px #000000;
   box-shadow: 1px 1px 13px -2px #000000;
+  transition: box-shadow 1s;
+  -webkit-transition: box-shadow 1s;
 
   &:hover {
-    position: relative;
-    bottom: 5px;
-    -webkit-box-shadow: 1px 1px 21px 3px #000000;
-    box-shadow: 1px 1px 21px 3px #000000;
+    animation-name: move-сard;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
   }
 
   &__hidden-info {
@@ -35,6 +36,7 @@
       font-weight: 700;
       color: black;
       text-decoration: underline;
+      transition: opacity 0.5s;
 
       &:hover {
         opacity: 0.5;
@@ -95,5 +97,23 @@
     border-radius: 20px;
     text-decoration: none;
     color: white;
+    transition: opacity 0.5s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+@keyframes move-сard {
+  0% {
+    position: relative;
+    bottom: 0px;
+  }
+  100% {
+    position: relative;
+    bottom: 5px;
+    -webkit-box-shadow: 1px 1px 21px 3px #000000;
+    box-shadow: 1px 1px 21px 3px #000000;
   }
 }

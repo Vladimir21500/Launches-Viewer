@@ -90,14 +90,55 @@
     color: white;
     border: 4px solid white;
     cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1) 2s;
 
     &:hover {
-      background-color: white;
-      color: black;
+      color: #000 !important;
+      background-color: transparent;
+      text-shadow: nthree;
+    }
+    &:hover:before {
+      left: 0%;
+      right: auto;
+      width: 100%;
+    }
+    &:before {
+      display: block;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      height: 100%;
+      width: 0px;
+      z-index: -1;
+      content: '';
+      color: #000 !important;
+      background: #f7ca18;
+      transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1) 0.2s;
     }
 
     @include for-small-up {
       margin-right: 10px;
     }
+  }
+  // &__search-btn {
+  //   color: #fff;
+  //   cursor: pointer;
+  //   display: block;
+  //   position: relative;
+  //   border: 2px solid #F7CA18;
+  // }
+}
+
+@keyframes water {
+  0% {
+    background: linear-gradient($backgroundColorBlack 100%, #fff 100% 0%);
+    color: white;
+  }
+  50% {
+    background: linear-gradient($backgroundColorBlack 50%, #fff 50%);
+  }
+  100% {
+    background: linear-gradient($backgroundColorBlack 0%, #fff 0% 100%);
+    color: black;
   }
 }

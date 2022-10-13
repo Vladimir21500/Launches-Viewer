@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
 import moment from 'moment';
-import { ICardProps } from 'src/types/properties';
+import { ICardProps } from '../../types/properties';
 import './card.scss';
 
 const Card: FunctionComponent<ICardProps> = ({

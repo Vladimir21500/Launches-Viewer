@@ -3,8 +3,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import getLaunches from '../../getLaunches';
 import Card from '../Card/Card';
 import Loader from '../Loader/Loader';
-import { ILaunchesCardsProps } from 'src/types/properties';
-import { LaunchesParams } from 'src/types/launches';
+import { ILaunchesCardsProps } from '../../types/properties';
 import './launchesCards.scss';
 
 const { useEffect, useState } = React;

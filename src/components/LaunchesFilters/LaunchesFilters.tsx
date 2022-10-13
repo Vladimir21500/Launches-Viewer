@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Filter from '../Filter/Filter';
-import { ILaunchesFiltersProps } from 'src/types/properties';
-import { LaunchesParams } from 'src/types/launches';
+import { ILaunchesFiltersProps } from '../../types/properties';
+import { LaunchesParams } from '../../types/launches';
 import './launchesFilters.scss';
 
 const { useState } = React;
